@@ -96,5 +96,41 @@ namespace TabloidCLI
                 }
             }
         }
+
+        //public SearchResults<Journal> SearchJournals(string tagName)
+        //{
+        //    using (SqlConnection conn = Connection)
+        //    {
+        //        conn.Open();
+        //        using (SqlCommand cmd = conn.CreateCommand())
+        //        {
+        //            cmd.CommandText = @"SELECT j.id, j.Title, j.Content, j.PublishDateTime 
+        //                        FROM Journal j
+        //                        LEFT JOIN JournalTag jt on j.Id = jt.JournalId
+        //                        LEFT JOIN Tag t on t.Id = jt.TagId
+        //                        WHERE t.Name LIKE @name";
+        //            cmd.Parameters.AddWithValue("@name", $"%{tagName}%");
+        //            SqlDataReader reader = cmd.ExecuteReader();
+
+        //            SearchResults<Journal> results = new SearchResults<Journal>();
+        //            while (reader.Read())
+        //            {
+        //                Journal journal = new Journal()
+        //                {
+        //                    Id = reader.GetInt32(reader.GetOrdinal("Id")),
+        //                    Title = reader.GetString(reader.GetOrdinal("Title")),
+        //                    Content = reader.GetString(reader.GetOrdinal("Content")),
+        //                    PublishDateTime = reader.GetDateTime(reader.GetOrdinal("PublishDateTime")),
+        //                };
+        //                results.Add(journal);
+        //            }
+
+        //            reader.Close();
+
+        //            return results;
+        //        }
+        //    }
+        //}
+
     }
 }
