@@ -7,8 +7,19 @@ namespace TabloidCLI.UserInterfaceManagers
         private const string CONNECTION_STRING =
             @"Data Source=localhost\SQLEXPRESS;Database=TabloidCLI;Integrated Security=True; TrustServerCertificate=True";
 
+        static void PrintPleasantGreeting()
+        {
+            Console.WriteLine("Welcome to the Tabloid Application!");
+            Console.WriteLine("We hope you have a pleasant experience.");
+            Console.WriteLine();
+        }
+
+
         public IUserInterfaceManager Execute()
         {
+
+            PrintPleasantGreeting();
+
             Console.WriteLine("Main Menu");
 
             Console.WriteLine(" 1) Journal Management");
@@ -24,7 +35,7 @@ namespace TabloidCLI.UserInterfaceManagers
             switch (choice)
             {
                 case "1": throw new NotImplementedException();
-                case "2": throw new NotImplementedException();
+                case "2": return new BlogManager(this, CONNECTION_STRING);
                 case "3": return new AuthorManager(this, CONNECTION_STRING);
                 case "4": throw new NotImplementedException();
                 case "5": return new TagManager(this, CONNECTION_STRING);
