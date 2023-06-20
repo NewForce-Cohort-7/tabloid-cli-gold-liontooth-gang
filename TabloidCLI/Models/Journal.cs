@@ -15,8 +15,12 @@ namespace TabloidCLI.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public DateTime PublishDateTime { get; set; }
+        public DateTime CreateDateTime { get; set; }
 
-        
+        //needed to return a string that rep the obj Journal, when using method list() to display each journals in JournalManager.cs
+        public override string ToString()
+        {
+            return $"{Title}, {CreateDateTime}";
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using TabloidCLI.Models;
+using static System.Collections.Specialized.BitVector32;
 
 namespace TabloidCLI.UserInterfaceManagers
 {
@@ -17,6 +18,7 @@ namespace TabloidCLI.UserInterfaceManagers
             _connectionString = connectionString;
         }
 
+        //execute method, required by the IUserInterfaceManager interface
         public IUserInterfaceManager Execute()
         {
             Console.WriteLine("Author Menu");
