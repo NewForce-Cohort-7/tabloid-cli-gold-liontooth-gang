@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using TabloidCLI.Models;
 using TabloidCLI.Repositories;
-
 namespace TabloidCLI.UserInterfaceManagers
 {
     internal class AuthorDetailManager : IUserInterfaceManager
@@ -12,7 +11,6 @@ namespace TabloidCLI.UserInterfaceManagers
         private PostRepository _postRepository;
         private TagRepository _tagRepository;
         private int _authorId;
-
         public AuthorDetailManager(IUserInterfaceManager parentUI, string connectionString, int authorId)
         {
             _parentUI = parentUI;
@@ -21,7 +19,6 @@ namespace TabloidCLI.UserInterfaceManagers
             _tagRepository = new TagRepository(connectionString);
             _authorId = authorId;
         }
-
         public IUserInterfaceManager Execute()
         {
             Author author = _authorRepository.Get(_authorId);
@@ -31,7 +28,6 @@ namespace TabloidCLI.UserInterfaceManagers
             Console.WriteLine(" 3) Add Tag");
             Console.WriteLine(" 4) Remove Tag");
             Console.WriteLine(" 0) Go Back");
-
             Console.Write("> ");
             string choice = Console.ReadLine();
             switch (choice)
@@ -55,7 +51,6 @@ namespace TabloidCLI.UserInterfaceManagers
                     return this;
             }
         }
-
         private void View()
         {
             Author author = _authorRepository.Get(_authorId);
@@ -68,7 +63,6 @@ namespace TabloidCLI.UserInterfaceManagers
             }
             Console.WriteLine();
         }
-
         private void ViewBlogPosts()
         {
             List<Post> posts = _postRepository.GetByAuthor(_authorId);
@@ -78,21 +72,17 @@ namespace TabloidCLI.UserInterfaceManagers
             }
             Console.WriteLine();
         }
-
         private void AddTag()
         {
             Author author = _authorRepository.Get(_authorId);
-
             Console.WriteLine($"Which tag would you like to add to {author.FullName}?");
             List<Tag> tags = _tagRepository.GetAll();
-
             for (int i = 0; i < tags.Count; i++)
             {
                 Tag tag = tags[i];
                 Console.WriteLine($" {i + 1}) {tag.Name}");
             }
             Console.Write("> ");
-
             string input = Console.ReadLine();
             try
             {
@@ -105,21 +95,17 @@ namespace TabloidCLI.UserInterfaceManagers
                 Console.WriteLine("Invalid Selection. Won't add any tags.");
             }
         }
-
         private void RemoveTag()
         {
             Author author = _authorRepository.Get(_authorId);
-
             Console.WriteLine($"Which tag would you like to remove from {author.FullName}?");
             List<Tag> tags = author.Tags;
-
             for (int i = 0; i < tags.Count; i++)
             {
                 Tag tag = tags[i];
                 Console.WriteLine($" {i + 1}) {tag.Name}");
             }
             Console.Write("> ");
-
             string input = Console.ReadLine();
             try
             {

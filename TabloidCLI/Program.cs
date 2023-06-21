@@ -7,7 +7,8 @@ namespace TabloidCLI
     {
         static void Main(string[] args)
         {
-            // MainMenuManager implements the IUserInterfaceManager interface
+                
+
             IUserInterfaceManager ui = new MainMenuManager();
             while (ui != null)
             {
