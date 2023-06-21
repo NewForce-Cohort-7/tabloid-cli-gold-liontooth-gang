@@ -157,5 +157,10 @@ namespace TabloidCLI.UserInterfaceManagers
                 _authorRepository.Delete(authorToDelete.Id);
             }
         }
+
+        //internal Author Choose(string v)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
