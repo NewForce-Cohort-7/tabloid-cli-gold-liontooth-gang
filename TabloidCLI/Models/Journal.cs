@@ -20,7 +20,7 @@ namespace TabloidCLI.Models
         //needed to return a string that rep the obj Journal, when using method list() to display each journals in JournalManager.cs
         public override string ToString()
         {
-            return $"{Title}, {CreateDateTime}";
+            return $"{Title}| {CreateDateTime}";
         }
     }
 }
