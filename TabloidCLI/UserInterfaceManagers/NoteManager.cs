@@ -26,7 +26,7 @@ namespace TabloidCLI.UserInterfaceManagers
             Console.WriteLine("Note Menu");
             Console.WriteLine(" 1) List Notes");
             Console.WriteLine(" 2) Add Note");
-            Console.WriteLine(" 3) Remove Note");
+            Console.WriteLine(" 3) Delete Note");
             Console.WriteLine(" 0) Go Back");
 
             Console.Write("> ");
@@ -40,7 +40,7 @@ namespace TabloidCLI.UserInterfaceManagers
                     Add();
                     return this;
                 case "3":
-                    Remove();
+                    Delete();
                     return this;
                 case "0":
                     return _parentUI;
@@ -102,16 +102,11 @@ namespace TabloidCLI.UserInterfaceManagers
             Console.Write("Content: ");
             note.Content = Console.ReadLine();
 
-            Console.Write("Create Date and Time (YYYY-MM-DD HH:MM:SS): ");
-            if (DateTime.TryParse(Console.ReadLine(), out DateTime createDateTime))
-            {
-                note.CreateDateTime = createDateTime;
-            }
 
             _noteRepository.Insert(note);
         }
 
-        private void Remove()
+        private void Delete()
         {
             Note noteToDelete = Choose("Which note would you like to remove?");
             if (noteToDelete != null)

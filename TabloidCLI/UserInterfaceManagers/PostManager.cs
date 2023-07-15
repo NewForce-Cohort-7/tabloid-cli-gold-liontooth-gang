@@ -55,6 +55,17 @@ namespace TabloidCLI.UserInterfaceManagers
             }
         }
 
+        //private int GetCurrentPostId()
+        //{
+        //    Post currentPost = Choose("Please choose a Post:");
+        //    if (currentPost != null)
+        //    {
+        //        return currentPost.Id;
+        //    }
+
+        //    // Return a default or error value when no post is selected
+        //    return -1;
+        //}
         private void List()
         {
             List<Post> posts = _postRepository.GetAll();
